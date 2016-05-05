@@ -3,7 +3,7 @@
     height: 100%;
     padding-top: 100px;
     text-align: center;
-    background-image: url('./images/pink_stripes.png');
+    background-image: url('images/pink_stripes.png');
     background-size: 80px 60px;
 
     /*   background: #fff; */
@@ -12,7 +12,7 @@
     height: 100%;
     padding-top: 150px;
     text-align: center;
-    background-image: url('./images/foggy_birds.png');
+    background-image: url('images/foggy_birds.png');
     background-size: 80px 60px;
     font-family: serif;
 }
@@ -21,7 +21,7 @@
     height: 100%;
    padding-top: 150px;
     text-align: center;
-    background-image: url('./images/foggy_birds.png');
+    background-image: url('images/foggy_birds.png');
     background-size: 80px 60px;
     font-family: serif;
 }
@@ -30,7 +30,7 @@
     height: 100%;
   padding-top: 150px;
     text-align: center;
-    background-image: url('./images/arab_tile.png');
+    background-image: url('images/arab_tile.png');
     background-size: 80px 60px;
     font-family: serif;
 }
