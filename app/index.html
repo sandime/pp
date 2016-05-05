@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html ng-app="myApp">
 <!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
@@ -9,6 +9,7 @@
   <title>Pig Popular</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="app.css">
@@ -21,28 +22,23 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
       integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
 
 </head>
-<body ng-app="pig" ng-controller="appController">
+<body ng-controller="appController">
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
       <!--  <a class="navbar-brand" href="/"></a>-->
     </div>
 
-    <!-- directionals on isHome
-    <a href="http://www.sherriberryapps.com" target="_blank">
-      <img src="http://img.photobucket.com/albums/v435/ocinrime/tiger%20app.png" border="0" alt="photo tiger app.png" />
-    </a>-->
+
     <ul class="nav navbar-nav navbar-right">
       <li> <a href="#home" ng-class="{ on: isHome }">Home</a>
       </li>
       <li> <a href="#about" ng-class="{ on: isAbout }">About</a>
       </li>
-      <li> <a href="#budget" ng-class="{ on: isBuy }">Buy</a>
+      <li> <a href="#buy" ng-class="{ on: isBuy }">Buy</a>
       </li>
       <li><a href="#contact" ng-class="{ on: isContact }">Contact</a>
       </li>
@@ -54,20 +50,147 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <div ng-view></div>
 
-  <div> </div>
+<div ng-switch on="renderPath[ 0 ]">
 
+  <!-- Home Content -->
+
+ <!-- <div ng-view></div> -->
+
+    <div ng-switch-when="home.default">
+
+      <div>
+        <h1>Home</h1>
+        <h4>Welcome to Pigginton Beach</h4>
+      </div>
+
+    </div>
+
+
+    <div ng-switch-when="about">
+
+      <div>
+        <h1>About</h1>
+        <h4>about the author</h4>
+      </div>
+
+    </div>
+
+    <div ng-switch-when="buy">
+
+      <div>
+        <h1>Buy</h1>
+        <h4>Buy it here</h4>
+      </div>
+
+    </div>
+
+  <div ng-switch-when="contact">
+
+    <div>
+      <h1>contact</h1>
+      <h4>contact author</h4>
+    </div>
+
+  </div>
+</div>
+    <script type="text/javascript">
+    // application module
+    var myApp = angular.module("myApp", []);
+
+    // routing. The $routeProvider will be
+    // automatically injected into the configurator.
+    myApp.config(
+            function($routeProvider) {
+
+                // mapping routes to render "Actions" not templates.
+                $routeProvider
+                        .when(
+                        "/home", {
+                            action: "home"
+                        }
+                )
+                        .when(
+                        "/about", {
+                            action: "about"
+                        }
+                )
+                        .when(
+                        "/budget", {
+                            action: "buy"
+                        }
+                )
+
+                        .when(
+                        "/contact", {
+                            action: "contact"
+                        }
+                )
+                        .otherwise({
+                            redirectTo: "/dashboard"
+                        });
+
+            }
+    );
+
+
+
+    myApp.controller("appController",function($scope, $route, $routeParams)
+            {
+
+                render = function() {
+
+                    // Pull the "action" value out of the
+                    // currently selected route.
+                    var renderAction = $route.current.action;
+                    // updates the render path so that
+                    // we can start conditionally rendering parts
+                    // of the page.
+                    var renderPath = renderAction.split(".");
+                    // Reset the booleans used to set the class
+                    // for the navigation.
+                    var isHome = (renderPath[0] == "home");
+                    var isAbout = (renderPath[0] == "about");
+                    var isContact = (renderPath[0] == "contact");
+                    var isBuy = (renderPath[0] == "buy");
+
+                    // Store the values in the model.
+                    $scope.renderAction = renderAction;
+                    $scope.renderPath = renderPath;
+                    $scope.isHome = isHome;
+                    $scope.isAbout = isAbout;
+                    $scope.isBuy = isBuy;
+                    $scope.isContact = isContact;
+
+                };
+
+                // Listen for changes to the Route. When the route
+                // changes, set the renderAction model value
+
+                $scope.$on("$routeChangeSuccess", function($currentRoute, $previousRoute) {
+                            // Update the rendering.
+                            render();
+                        }
+                );
+            }
+    );
+</script>
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
+
   <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="app.js"></script>
-  <script src="view1/view1.js"></script>
-  <script src="view2/view2.js"></script>
-  <script src="components/version/version.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>-->
+ <!-- <script src="app.js"></script> -->
+<script   src="https://code.jquery.com/jquery-1.12.3.min.js"
+          integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="
+          crossorigin="anonymous"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+
+  <!--<script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
+  <script src="components/version/interpolate-filter.js"></script> -->
 </body>
 </html>
