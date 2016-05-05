@@ -50,50 +50,86 @@
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-<div class="container">
-
-    <div class="row" align="center">
-
-        <div class="col-sm-4"><a href="http://www.amazon.com/Pig-Popular-1-Sherri-Cruz-ebook/dp/B01EUCXNPC/ref=sr_1_4?ie=UTF8&qid=1461764673&sr=8-4&keywords=pig+popular">
-            <IMG class="img-responsive" src='images/Kindle.jpg' width="240" height="60" alt="Pig Popular cover"></a>
-        </div>
-    </div>
-        <!--   <div class="row">
-               <div class="col-sm-4">
-                   <h3>Coming May 1, 2016</h3>
-                   </div>
-               </div> -->
-
-    </div>
 
 <div ng-switch on="renderPath[ 0 ]">
 
 
     <div ng-switch-when="home">
 
-      <div>
-        <h1>Home</h1>
-        <h4>Welcome to Pigginton Beach</h4>
-      </div>
+        <div class="container">
 
+            <div class="row" align="center">
+
+                <div class="col-sm-12"><a href="http://www.amazon.com/Pig-Popular-1-Sherri-Cruz-ebook/dp/B01EUCXNPC/ref=sr_1_4?ie=UTF8&qid=1461764673&sr=8-4&keywords=pig+popular">
+                    <IMG class="img-responsive" src='images/Kindle.jpg' width="240" height="60" alt="Pig Popular cover"></a>
+                </div>
+            </div>
+            <div class="row" align="center">
+
+                <div class="col-sm-12">
+                    <!--  <button type="button" class="btn btn-success">$2.99 Buy Here</button> -->
+
+                    <a href="http://www.amazon.com/Pig-Popular-1-Sherri-Cruz-ebook/dp/B01EUCXNPC/ref=sr_1_4?ie=UTF8&qid=1461764673&sr=8-4&keywords=pig+popular"
+                       role="button" class="btn btn-success btn-large">$2.99!</a>
+
+                </div>
+            </div>
+        </div>
     </div>
 
 
     <div ng-switch-when="about">
+                <div class="row" align="center">
+                    <div class="col-lg-6">
 
-      <div>
-        <h1>About</h1>
-        <h4>about the author</h4>
-      </div>
+                        <h4><b>Welcome to Piggington Beach by the Sea, home to Pig Popular and his friends</b></h4>
+                        <h5>Pig Popular loves to skateboard,
+                            and he is the surfing champion of Piggington Beach.
+                            But when Mimsy Sage Pig moves to town,
+                            life changes for Pig Popular. Mimsy Sage,
+                            who grew up surfing with the great Pig Duke,
+                            is the surfing champ of her hometown — and she never misses
+                            an opportunity to brag about it.
+                            What’s worse, Pig Popular’s best friend Wooten is spending a
+                            lot more time with Mimsy Sage.
+                            So are the rest of the pigs,
+                            who are dressing and even speaking like her.
+                            You could call her a trendsetter.
+                            What will happen when Pig Popular and Mimsy Sage face
+                            off in the annual Piggington Grand surfing contest? </h5>
+                        <div align="center">
+                            <IMG class="img-responsive" src='images/pigpopboots.jpg' width="275" height="70" alt="Pig Popular illustration">
+                        </div>
+                    </div>
+                    <h5>Pig Popular is a chapter book, suitable for
+                        children in grades 1-5; ages
+                        5 to 10. Similar books include Winnie-the-Pooh,
+                        and the Geronimo Stilton and Junie B. Jones series.</h5>
+                </div>
+            </div>
 
-    </div>
 
     <div ng-switch-when="buy">
 
-      <div>
-        <h1>Buy</h1>
-        <h4>Buy it here</h4>
-      </div>
+        <div class="container">
+            <div class="row" align="center">
+                <div class="col-lg-12">
+                    <h2>Available exclusively on Amazon beginning May 1.
+                        Coming soon to the iTunes and Google Play stores.</h2>
+                    <p align="center">
+                        <!-- <button type="button" class="btn btn-success"></button> -->
+                        <a href="http://www.amazon.com/Pig-Popular-1-Sherri-Cruz-ebook/dp/B01EUCXNPC/ref=sr_1_4?ie=UTF8&qid=1461764673&sr=8-4&keywords=pig+popular"> <img src='images/amazonlogo.jpg'
+                                                                                                                                                                          width="100" height="50" class="img-responsive"></a>
+                        <a href="http://smile.amazon.com/Pig-Popular-1-Sherri-Cruz-ebook/dp/B01EUCXNPC/ref=sr_1_4?ie=UTF8&qid=1461783930&sr=8-4&keywords=pig+popular"> <img src='images/AmazonSmile-logo.jpg'
+                                                                                                                                                                            width="100" height="50" class="img-responsive"></a>
+
+                        <!--      <button type="button" class="btn btn-primary">iTunes</button> -->
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
 
     </div>
 
@@ -105,7 +141,10 @@
     </div>
 
   </div>
+
+
 </div>
+
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js">
     </script>
     <script>
