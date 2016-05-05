@@ -3,29 +3,30 @@
     height: 100%;
     padding-top: 100px;
     text-align: center;
-    background-image: url('../images/pink_stripes.png');
+    background-image: url('./images/pink_stripes.png');
     background-size: 80px 60px;
     /*   background: #fff; */
 }
-
 .about-section {
     height: 100%;
     padding-top: 150px;
     text-align: center;
-    background-image: url('../images/pink_stripes.png');
+    background-image: url('./images/foggy_birds.png');
     background-size: 80px 60px;
 }
 
 .buy-section {
     height: 100%;
-    padding-top: 150px;
+   padding-top: 150px;
     text-align: center;
-    background-image: url('../images/foggy_birds.png');
+    background-image: url('./images/foggy_birds.png');
+    background-size: 80px 60px;
 }
 
 .contact-section {
     height: 100%;
-    padding-top: 150px;
+  padding-top: 150px;
     text-align: center;
-    background-image: url('../images/arab_tile.png');;
+    background-image: url('./images/arab_tile.png');
+    background-size: 80px 60px;
 }
