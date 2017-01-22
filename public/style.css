@@ -18,11 +18,11 @@
     font-family: fantasy, Arial;
 }
 
-.buy-section {
-    height: 100%;
+ .buy-section {
+   height: 100%;
    padding-top: 150px;
     text-align: center;
-    background-image: url('images/foggy_birds.png');
+   /* background-image: url('images/foggy_birds.png'); */
     background-size: 80px 60px;
     font-family: fantasy, Arial;
 }
